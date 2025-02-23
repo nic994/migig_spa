@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "encodeRegular";
+  src: url("./assets/font/EncodeSansCondensed-Regular.ttf");
+}
+@font-face {
+  font-family: "encodeBold";
+  src: url("./assets/font/EncodeSansCondensed-Bold.ttf");
+}
+@font-face {
+  font-family: "encodeSemiBold";
+  src: url("./assets/font/EncodeSansCondensed-SemiBold.ttf");
+}
+@font-face {
+  font-family: "encodeExtraBold";
+  src: url("./assets/font/EncodeSansCondensed-ExtraBold.ttf");
+}
+
+.font-Regular {
+  font-family: "encodeRegular";
+}
+.font-semibold {
+  font-family: "encodeSemiBold";
+}
+.font-bold {
+  font-family: "encodeBold";
+}
+.font-extrabold {
+  font-family: "encodeExtraBold";
+}
+.margin-top {
+  margin-top: 55px;
+}
+.btn-red {
+  background-color: #fe0003;
+}
+
+.bg-black1 {
+  background-color: #1b1b1b;
+}
+.font-black {
+  color: #1b1b1b;
+}
+.bg-color {
+  background-color: #1b1b1b;
+}
+.text-white {
+  color: red;
+}
+.nav-link {
+  margin-right: 15px;
+  margin-left: 15px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: #f9f9f9;
+}
