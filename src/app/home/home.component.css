@@ -213,3 +213,45 @@
   justify-content: center;
 }
 /* end step customize prodcuts */
+
+a {
+  color: white;
+}
+
+/* about us */
+.myColor {
+  background-color: #1b1b1b;
+}
+
+/* about us fadein */
+.thisFadeIn {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.thisFadeIn.fade-in {
+  animation: fadeup 1s ease 50ms 1 normal forwards;
+}
+
+@keyframes fadeup {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* end about us */
+
+/* contact us */
+.left {
+}
+.red {
+  padding: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 15px rgba(174, 172, 172, 0.905); /* Add shadow */
+}
