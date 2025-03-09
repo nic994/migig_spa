@@ -15,13 +15,14 @@ export class CardFadeinDirective implements OnInit {
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
   ngOnInit() {
-    this.onWindowScroll();
+    // this.onWindowScroll();
+    setTimeout(() => this.onWindowScroll(), 50); // Ensures it runs at page load
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollPosition = window.scrollY;
     const screenWidth = window.innerWidth;
-    const triggerPosition = screenWidth > 768 ? 100 : 1;
+    const triggerPosition = screenWidth > 768 ? 100 : 0;
 
     if (scrollPosition >= triggerPosition && !this.fadedIn) {
       this.animateCards();

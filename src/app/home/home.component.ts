@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
     GoogleMapsModule,
     AboutusFadeinDirective,
     CommonModule,
+    CardFadeinDirective,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

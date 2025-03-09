@@ -197,6 +197,11 @@
     display: none;
   }
 }
+@media (max-width: 768px) {
+  .step-item {
+    height: 222px;
+  }
+}
 .mod {
   cursor: pointer;
 }
