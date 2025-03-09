@@ -247,11 +247,10 @@ a {
 /* end about us */
 
 /* contact us */
-.left {
-}
+
 .red {
   padding: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  box-shadow: 5px 5px 15px rgba(174, 172, 172, 0.905); /* Add shadow */
+  box-shadow: 5px 5px 15px rgba(174, 172, 172, 0.905);
 }
