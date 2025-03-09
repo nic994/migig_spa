@@ -21,7 +21,7 @@ export class CardFadeinDirective implements OnInit {
   onWindowScroll() {
     const scrollPosition = window.scrollY;
     const screenWidth = window.innerWidth;
-    const triggerPosition = screenWidth > 768 ? 100 : 0;
+    const triggerPosition = screenWidth > 768 ? 100 : 1;
 
     if (scrollPosition >= triggerPosition && !this.fadedIn) {
       this.animateCards();

@@ -19,3 +19,8 @@
 a {
   cursor: pointer;
 }
+@media (max-width: 425px) {
+  .offcanvas {
+    width: 200px !important; /* Adjust the width as needed */
+  }
+}
