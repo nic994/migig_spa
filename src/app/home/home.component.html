@@ -1,45 +1,25 @@
-<div class="margin-top">
+<div class="margin-top" id="home">
   <div
     id="carouselExampleControls"
     class="carousel slide"
     data-bs-ride="carousel"
   >
     <div class="carousel-inner">
-      <div class="carousel-item active c-item">
+      <div
+        *ngFor="let slides of imageSlides; let i = index"
+        class="carousel-item c-item"
+        [ngClass]="{ active: i === 0 }"
+      >
         <img
-          src="../../assets/image/customizedBags.png"
+          [src]="slides.image"
           class="d-block w-100 c-img"
-          alt="Slide 1"
+          [alt]="'Slide ' + (i + 1)"
           loading="eager"
         />
         <div class="carousel-caption fade-in-slide-up">
           <p class="display-1 font-semibold text-capitalize">
-            MiGig Customized Bags
+            {{ slides.caption }}
           </p>
-        </div>
-      </div>
-      <div class="carousel-item c-item">
-        <img
-          src="../../assets/image/customizedKeyboard.jpg"
-          class="d-block w-100 c-img"
-          alt="Slide 2"
-          loading="eager"
-        />
-        <div class="carousel-caption fade-in-slide-up">
-          <p class="display-1 text-capitalize font-semibold">Keyboard</p>
-        </div>
-      </div>
-      <div class="carousel-item c-item">
-        <img
-          src="../../assets/image/customizedGuitar.jpg"
-          class="d-block w-100 c-img"
-          alt="Slide 3"
-          loading="eager"
-        />
-        <div class="carousel-caption fade-in-slide-up">
-          <a routerLink="/product/guitar">
-            <p class="display-1 text-capitalize font-semibold">Guitar</p>
-          </a>
         </div>
       </div>
     </div>
@@ -73,130 +53,28 @@
 </section>
 <div class="container mb-5">
   <div class="card-group" appCardFadein>
-    <div class="card">
+    <div class="card" *ngFor="let product of productImages">
       <div class="image-container">
-        <a href="/product/guitar">
-          <img
-            class="card-img-top front w-100"
-            src="../../assets/image/products/g1.png"
-            alt="..."
-            loading="eager" />
-          <img
-            class="card-img-top back"
-            src="../../assets/image/products/g2.png"
-            alt="Card Image"
-            loading="eager"
-            decoding="async"
-        /></a>
-      </div>
-      <div class="card-body">
-        <a href="/product/guitar">
-          <h5 class="card-title font-semibold mt-0">Guitar</h5>
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="image-container">
-        <a href="/product/keyboard">
-          <img
-            class="card-img-top front"
-            src="../../assets/image/products/k1.png"
-            alt="..."
-            loading="eager" />
-          <img
-            class="card-img-top back"
-            src="../../assets/image/products/k2.png"
-            alt="Card Image"
-            loading="eager"
-            decoding="async"
-        /></a>
-      </div>
-      <div class="card-body">
-        <a href="/product/keyboard">
-          <h5 class="card-title font-semibold">Keyboard</h5>
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="image-container">
+        <!-- <a href="/product/guitar"> -->
         <img
-          class="card-img-top front"
-          src="../../assets/image/products/drumpad1.png"
+          class="card-img-top front w-100"
+          [src]="product.images[0]"
           alt="..."
           loading="eager"
         />
         <img
           class="card-img-top back"
-          src="../../assets/image/products/drumpad2.png"
+          [src]="product.images[1]"
           alt="Card Image"
           loading="eager"
           decoding="async"
         />
+        <!-- </a> -->
       </div>
       <div class="card-body">
-        <h5 class="card-title font-semibold">Drum Pad</h5>
-      </div>
-    </div>
-    <div class="card">
-      <div class="image-container">
-        <img
-          class="card-img-top front"
-          src="../../assets/image/products/ampli1.png"
-          alt="..."
-          loading="eager"
-        />
-        <img
-          class="card-img-top back"
-          src="../../assets/image/products/ampli2.png"
-          alt="Card Image"
-          loading="eager"
-          decoding="async"
-        />
-      </div>
-      <div class="card-body">
-        <h5 class="card-title font-semibold">Amplifier</h5>
-      </div>
-    </div>
-    <div class="card">
-      <div class="image-container">
-        <img
-          class="card-img-top front"
-          src="../../assets/image/products/c1.png"
-          alt="..."
-          loading="eager"
-        />
-        <img
-          class="card-img-top back"
-          src="../../assets/image/products/c2.png"
-          alt="Card Image"
-          loading="eager"
-          decoding="async"
-        />
-      </div>
-      <div class="card-body">
-        <h5 class="card-title font-semibold">Percussion</h5>
-      </div>
-    </div>
-    <div class="card">
-      <div class="image-container">
-        <img
-          class="card-img-top front"
-          src="../../assets/image/products/c1.png"
-          alt="..."
-          loading="eager"
-        />
-        <img
-          class="card-img-top back"
-          src="../../assets/image/products/c2.png"
-          alt="Card Image"
-          loading="eager"
-          decoding="async"
-        />
-      </div>
-      <div class="card-body">
-        <h5 class="card-title font-semibold">Percussion</h5>
+        <!-- <a href="/product/guitar"> -->
+        <h5 class="card-title font-semibold mt-0">{{ product.title }}</h5>
+        <!-- </a> -->
       </div>
     </div>
   </div>
@@ -209,12 +87,6 @@
       <div class="col-md-3 mb-4 mb-md-0">
         <div class="step-item text-center">
           <div class="step-icon mb-3">
-            <!-- <span
-              class="bg-primary text-white rounded-circle d-inline-block p-3"
-            >
-               <i class="bi bi-search fs-2"></i> 
-              <i class="fa-solid fa-icons fs-1"></i>
-            </span> -->
             <span
               class="btn btn-outline-dark btn-floating p-3 rounded-circle d-inline-block"
             >
@@ -232,11 +104,6 @@
           data-bs-target="#exampleModal"
         >
           <div class="step-icon mb-3">
-            <!-- <span
-              class="bg-success text-white rounded-circle d-inline-block p-3"
-            >
-           
-            </span> -->
             <span
               class="btn btn-outline-dark btn-floating p-3 rounded-circle d-inline-block"
             >
@@ -275,124 +142,126 @@
       </div>
     </div>
   </div>
-
-  <!-- Modal -->
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <img
-            src="../../assets/image/products/measurement.png"
-            alt="Step 2 Image"
-            class="img-fluid rounded"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
-<section>
-  <!-- Contact us -->
-
-  <div class="container my-5 thisFadeIn p-4" id="contact-us" appAboutusFadein>
-    <h1 class="text-center mb-4 font-bold">Contact Us</h1>
-    <div class="row red">
-      <!-- Left Side: Contact Info -->
-      <div class="col-md-5 p-4 flex-column justify-content-center left">
-        <h3 class="text-dark font-bold">Have questions?</h3>
-        <p class="font-Regular">Reach out to us through the form.</p>
-        <p class="font-Regular">
-          <i class="fa-solid fa-location-pin fs-6"></i> M3CG+HMW, Laura, Quezon
-          City, Metro Manila
-        </p>
-        <p>
-          <i class="fa-solid fa-envelope fs-6"></i>
-          <a
-            href="mailto:jonatorres@gmail.com"
-            class="text-dark mx-2 font-Regular"
-            >Migig</a
-          >
-        </p>
-        <p class="font-Regular">
-          <i class="fa-solid fa-phone fs-6"></i> +1 989 989 9898
-        </p>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
-
-      <!-- Right Side: Contact Form -->
-      <div class="col-md-6 p-4 contact-form">
-        <form>
-          <div class="mb-3">
-            <input
-              type="email"
-              class="form-control font-Regular"
-              placeholder="Email"
-            />
-          </div>
-          <div class="mb-3">
-            <input
-              type="text"
-              class="form-control font-Regular"
-              placeholder="Phone"
-            />
-          </div>
-          <div class="mb-3">
-            <textarea
-              class="form-control font-Regular"
-              rows="4"
-              placeholder="Message"
-            ></textarea>
-          </div>
-          <button type="submit" class="btn btn-light font-Regular">Send</button>
-        </form>
-      </div>
-    </div>
-
-    <hr />
-  </div>
-</section>
-
-<section class="mb-5 thisFadeIn" id="about-us" appAboutusFadein>
-  <div class="container-fluid p-0">
-    <div class="row g-0 px-0">
-      <div class="col-12 col-md-6 col-lg-6 order-md-first order-first">
+      <div class="modal-body">
         <img
-          class="img-responsive"
-          style="width: 100%; height: 100%"
-          src="../../assets/image/abt.jpg"
-          loading="lazy"
-          decoding="async"
+          src="../../assets/image/products/measurement.png"
+          alt="Step 2 Image"
+          class="img-fluid rounded"
         />
       </div>
-      <div
-        class="col-12 col-md-6 myColor col-lg-6 text-dark d-flex align-items-center"
-      >
-        <div class="p-2 p-lg-5">
-          <h2 class="pt-3 px-3 text-white font-extrabold">
-            What Is Migig All About?
-          </h2>
-          <p class="pt-3 fs-6 px-3 text-white font-Regular fs-5">
-            At Migig, We Bring Your Vision to Life with Custom Bags. From
-            gig-ready to everyday, we craft bags that fit your style, needs, and
-            personality.
+    </div>
+  </div>
+</div>
+<section>
+  <!-- Contact us -->
+  <section class="thisFadeIn" id="contact-us" appAboutusFadein>
+    <div class="container my-5 p-4">
+      <h1 class="text-center mb-4 font-bold">Contact Us</h1>
+      <div class="row red">
+        <!-- Left Side: Contact Info -->
+        <div class="col-md-5 p-4 flex-column justify-content-center left">
+          <h3 class="text-dark font-bold">Have questions?</h3>
+          <p class="font-Regular">Reach out to us through the form.</p>
+          <p class="font-Regular">
+            <i class="fa-solid fa-location-pin fs-6"></i> M3CG+HMW, Laura,
+            Quezon City, Metro Manila
           </p>
-          <!-- <a routerLink="#" class="button1 ms-3">About Us</a> -->
+          <p>
+            <i class="fa-solid fa-envelope fs-6"></i>
+            <a
+              href="mailto:jonatorres@gmail.com"
+              class="text-dark mx-2 font-Regular"
+              >Migig</a
+            >
+          </p>
+          <p class="font-Regular">
+            <i class="fa-solid fa-phone fs-6"></i> +1 989 989 9898
+          </p>
+        </div>
+
+        <!-- Right Side: Contact Form -->
+        <div class="col-md-6 p-4 contact-form">
+          <form>
+            <div class="mb-3">
+              <input
+                type="email"
+                class="form-control font-Regular"
+                placeholder="Email"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control font-Regular"
+                placeholder="Phone"
+              />
+            </div>
+            <div class="mb-3">
+              <textarea
+                class="form-control font-Regular"
+                rows="4"
+                placeholder="Message"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-light font-Regular">
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <hr />
+    </div>
+  </section>
+
+  <section class="mb-5 thisFadeIn" id="about-us" appAboutusFadein>
+    <div class="container-fluid p-0">
+      <div class="row g-0 px-0">
+        <div class="col-12 col-md-6 col-lg-6 order-md-first order-first">
+          <img
+            class="img-responsive"
+            style="width: 100%; height: 100%"
+            [src]="[aboutUsImage]"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div
+          class="col-12 col-md-6 myColor col-lg-6 text-dark d-flex align-items-center"
+        >
+          <div class="p-2 p-lg-5">
+            <h2 class="pt-3 px-3 text-white font-extrabold">
+              What Is Migig All About?
+            </h2>
+            <p class="pt-3 fs-6 px-3 text-white font-Regular fs-5">
+              At Migig, We Bring Your Vision to Life with Custom Bags. From
+              gig-ready to everyday, we craft bags that fit your style, needs,
+              and personality.
+            </p>
+            <!-- <a routerLink="#" class="button1 ms-3">About Us</a> -->
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <!-- aboaut us card not showing -->
 </section>
-<!-- aboaut us card not showing -->
