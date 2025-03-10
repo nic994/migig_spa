@@ -86,7 +86,9 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets",
+              "src/google65112467ec7ef413.html"
             ],
             "styles": ["src/styles.css"],
             "scripts": []
