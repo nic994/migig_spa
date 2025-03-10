@@ -12,7 +12,7 @@ export class AnnouncementComponent implements AfterViewInit {
   ngAfterViewInit() {
     // Delay modal opening to ensure the DOM is fully loaded
     setTimeout(() => {
-      const modalElement = document.getElementById('exampleModal');
+      const modalElement = document.getElementById('announcementModal');
       if (modalElement) {
         const myModal = new Modal(modalElement);
         myModal.show();
