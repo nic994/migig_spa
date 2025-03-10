@@ -30,7 +30,7 @@ export class HomeComponent {
       {
         name: 'keywords',
         content:
-          'custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
+          'migig, migig customize gig bags, customize bags, custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
       },
       {
         name: 'author',
@@ -51,7 +51,7 @@ export class HomeComponent {
       },
       {
         property: 'og:url',
-        content: 'https://migig-spa-nic994s-projects.vercel.app/',
+        content: 'https://migig.shop/',
       },
       {
         name: 'robots',
