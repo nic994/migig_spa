@@ -4,10 +4,16 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { Meta, Title } from '@angular/platform-browser';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 @Component({
   selector: 'app-root',
-  imports: [NavbarComponent, RouterModule, FooterComponent],
+  imports: [
+    NavbarComponent,
+    RouterModule,
+    FooterComponent,
+    AnnouncementComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
