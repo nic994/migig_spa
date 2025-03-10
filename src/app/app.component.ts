@@ -11,5 +11,5 @@ import { FooterComponent } from './common/footer/footer.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'migig_spa';
+  title = 'Migig Customized Gig Bags';
 }
