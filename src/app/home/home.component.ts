@@ -25,12 +25,12 @@ export class HomeComponent {
       {
         name: 'description',
         content:
-          'Design your perfect gig bag with custom materials, colors, and features. High-quality protection for your musical instruments, tailored to your style.',
+          'Design your perfect gig bag with custom  colors, and features. High-quality protection for your musical instruments, tailored to your style.',
       },
       {
         name: 'keywords',
         content:
-          'migig, migig customize gig bags, customize bags, custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
+          'migig, migig customize gig bags, customize bags, migig shop, migig website, custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
       },
       {
         name: 'author',
@@ -117,11 +117,11 @@ export class HomeComponent {
     },
     {
       images: [
-        '../../assets/image/products/c1.png',
-        '../../assets/image/products/c2.png',
+        '../../assets/image/products/starlink.png',
+        '../../assets/image/products/starlink2.png',
       ],
 
-      title: 'Percussion',
+      title: 'Others',
     },
   ];
 
