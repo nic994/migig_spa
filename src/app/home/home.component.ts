@@ -1,24 +1,22 @@
-import { Component } from '@angular/core';
-import { CardFadeinDirective } from '../directives/card-fadein.directive';
-import { GoogleMapsModule } from '@angular/google-maps';
-import { AboutusFadeinDirective } from '../directives/aboutus-fadein.directive';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { ElementRef, HostListener, Renderer2 } from '@angular/core';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CardFadeinDirective,
-    GoogleMapsModule,
-    AboutusFadeinDirective,
-    CommonModule,
-    CardFadeinDirective,
-  ],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
-  constructor(private meta: Meta, private title: Title) {
+export class HomeComponent implements OnInit {
+  constructor(
+    private meta: Meta,
+    private title: Title,
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) {
     this.title.setTitle('Migig Customized Gig Bags');
 
     this.meta.addTags([
@@ -58,6 +56,81 @@ export class HomeComponent {
         content: 'index, follow',
       },
     ]);
+  }
+
+  fadedInAboutUs = false;
+  fadedInContactUs = false;
+  fadedInService = false;
+  private fadedIn = false;
+
+  ngOnInit() {
+    setTimeout(() => this.onWindowScroll(), 50);
+  }
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollPosition = window.scrollY;
+    const screenWidth = window.innerWidth;
+    const triggerPosition = screenWidth > 768 ? 100 : 0; //cards
+    const triggerPositionService = screenWidth > 700 ? 800 : 1200;
+    const triggerPositionContactUs = screenWidth > 700 ? 1106 : 2100;
+    const triggerPositionAboutUs = screenWidth > 700 ? 1800 : 3012;
+
+    console.log(scrollPosition);
+    const serviceElement = document.getElementById('services');
+    const contactUsElement = document.getElementById('contact-us');
+    const aboutUsElement = document.getElementById('about-us');
+
+    // animate cards
+    if (scrollPosition >= triggerPosition && !this.fadedIn) {
+      this.animateCards();
+      this.fadedIn = true;
+    }
+
+    // Fade in Services
+    if (
+      serviceElement &&
+      scrollPosition >= triggerPositionService &&
+      !this.fadedInService
+    ) {
+      this.fadeInCard(serviceElement, 10);
+      this.fadedInService = true;
+    }
+    // Fade in Contact Us
+    if (
+      contactUsElement &&
+      scrollPosition >= triggerPositionContactUs &&
+      !this.fadedInContactUs
+    ) {
+      this.fadeInCard(contactUsElement, 10);
+      this.fadedInContactUs = true;
+    }
+
+    // Fade in About Us
+    if (
+      aboutUsElement &&
+      scrollPosition >= triggerPositionAboutUs &&
+      !this.fadedInAboutUs
+    ) {
+      this.fadeInCard(aboutUsElement, 10);
+      this.fadedInAboutUs = true;
+    }
+  }
+  private animateCards() {
+    const cards = this.el.nativeElement.querySelectorAll('.card');
+    cards.forEach((card: HTMLElement, index: number) => {
+      const delay = index * 200;
+      setTimeout(() => {
+        this.renderer.addClass(card, 'fade-in');
+      }, delay);
+    });
+  }
+  private fadeInCard(cardElement: HTMLElement, delay: number) {
+    if (cardElement) {
+      setTimeout(() => {
+        console.log(cardElement.id);
+        this.renderer.addClass(cardElement, 'fade-in');
+      }, delay);
+    }
   }
 
   imageSlides = [
