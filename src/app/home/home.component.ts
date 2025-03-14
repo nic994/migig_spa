@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       },
       {
         name: 'author',
-        content: 'Migig',
+        content: 'MiGig Customized Gig Bags',
       },
       {
         property: 'og:title',
