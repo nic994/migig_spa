@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
     const triggerPositionContactUs = screenWidth > 700 ? 1106 : 2100;
     const triggerPositionAboutUs = screenWidth > 700 ? 1800 : 3012;
 
-    console.log(scrollPosition);
+    // console.log(scrollPosition);
     const serviceElement = document.getElementById('services');
     const contactUsElement = document.getElementById('contact-us');
     const aboutUsElement = document.getElementById('about-us');
@@ -127,7 +127,7 @@ export class HomeComponent implements OnInit {
   private fadeInCard(cardElement: HTMLElement, delay: number) {
     if (cardElement) {
       setTimeout(() => {
-        console.log(cardElement.id);
+        // console.log(cardElement.id);
         this.renderer.addClass(cardElement, 'fade-in');
       }, delay);
     }
