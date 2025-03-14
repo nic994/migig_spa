@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
     const aboutUsElement = document.getElementById('about-us');
 
     // animate cards
-    if (cardsElement && scrollPosition >= triggerPosition && !this.fadedIn) {
+    if (scrollPosition >= triggerPosition && !this.fadedIn) {
       this.animateCards();
       this.fadedIn = true;
     }
