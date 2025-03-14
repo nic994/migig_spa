@@ -30,7 +30,7 @@ export class AppComponent {
       {
         name: 'keywords',
         content:
-          'migig, migig customize gig bags, customize bags, migig shop, migig website, custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
+          'migig, migig customize gig bags, customize bags, customized gig bags, migig shop, migig website, custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
       },
       {
         name: 'author',

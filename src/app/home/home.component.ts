@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       {
         name: 'keywords',
         content:
-          'migig, migig customize gig bags, customize bags, migig shop, migig website, custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
+          'migig, migig customize gig bags, customize bags, customized gig bags, migig shop, migig website, custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
       },
       {
         name: 'author',
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
   fadedInAboutUs = false;
   fadedInContactUs = false;
   fadedInService = false;
-  private fadedIn = false;
+  fadedIn = false;
 
   ngOnInit() {
     setTimeout(() => this.onWindowScroll(), 50);
@@ -76,12 +76,13 @@ export class HomeComponent implements OnInit {
     const triggerPositionAboutUs = screenWidth > 700 ? 1800 : 3012;
 
     // console.log(scrollPosition);
+    const cardsElement = document.getElementById('cardsElement');
     const serviceElement = document.getElementById('services');
     const contactUsElement = document.getElementById('contact-us');
     const aboutUsElement = document.getElementById('about-us');
 
     // animate cards
-    if (scrollPosition >= triggerPosition && !this.fadedIn) {
+    if (cardsElement && scrollPosition >= triggerPosition && !this.fadedIn) {
       this.animateCards();
       this.fadedIn = true;
     }
@@ -92,7 +93,7 @@ export class HomeComponent implements OnInit {
       scrollPosition >= triggerPositionService &&
       !this.fadedInService
     ) {
-      this.fadeInCard(serviceElement, 10);
+      //this.fadeInCard(serviceElement, 10);
       this.fadedInService = true;
     }
     // Fade in Contact Us
@@ -101,7 +102,7 @@ export class HomeComponent implements OnInit {
       scrollPosition >= triggerPositionContactUs &&
       !this.fadedInContactUs
     ) {
-      this.fadeInCard(contactUsElement, 10);
+      // this.fadeInCard(contactUsElement, 10);
       this.fadedInContactUs = true;
     }
 
@@ -111,26 +112,26 @@ export class HomeComponent implements OnInit {
       scrollPosition >= triggerPositionAboutUs &&
       !this.fadedInAboutUs
     ) {
-      this.fadeInCard(aboutUsElement, 10);
+      //this.fadeInCard(aboutUsElement, 10);
       this.fadedInAboutUs = true;
     }
   }
+  // private animateCards() {
+  //   const cards = this.el.nativeElement.querySelectorAll('.card');
+  //   cards.forEach((card: HTMLElement, index: number) => {
+  //     const delay = index * 200;
+  //     setTimeout(() => {
+  //       this.renderer.addClass(card, 'fade-in');
+  //     }, delay);
+  //   });
+  // }
+
   private animateCards() {
-    const cards = this.el.nativeElement.querySelectorAll('.card');
-    cards.forEach((card: HTMLElement, index: number) => {
-      const delay = index * 200;
-      setTimeout(() => {
-        this.renderer.addClass(card, 'fade-in');
-      }, delay);
-    });
-  }
-  private fadeInCard(cardElement: HTMLElement, delay: number) {
-    if (cardElement) {
-      setTimeout(() => {
-        // console.log(cardElement.id);
-        this.renderer.addClass(cardElement, 'fade-in');
-      }, delay);
-    }
+    this.el.nativeElement
+      .querySelectorAll('.card')
+      .forEach((card: HTMLElement, index: number) =>
+        setTimeout(() => this.renderer.addClass(card, 'fade-in'), index * 200)
+      );
   }
 
   imageSlides = [
