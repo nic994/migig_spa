@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       {
         name: 'keywords',
         content:
-          'migig, migig customize gig bags, customize bags, customized gig bags, migig shop, migig website, custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
+          'migig, migig customized gig bags, migig website, customize bags, customized gig bags, migig shop, migig website, custom gig bags, personalized instrument bags, guitar case customization, premium gig bags, music accessories',
       },
       {
         name: 'author',
