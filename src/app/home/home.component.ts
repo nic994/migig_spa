@@ -11,6 +11,8 @@ import { ElementRef, HostListener, Renderer2 } from '@angular/core';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
+  private isiOS!: boolean;
+
   constructor(
     private meta: Meta,
     private title: Title,
@@ -56,6 +58,10 @@ export class HomeComponent implements OnInit {
         content: 'index, follow',
       },
     ]);
+
+    this.isiOS =
+      /iphone|ipad|ipod|Macintosh/i.test(navigator.userAgent) &&
+      'ontouchend' in document;
   }
 
   fadedInAboutUs = false;
@@ -64,7 +70,23 @@ export class HomeComponent implements OnInit {
   fadedIn = false;
 
   ngOnInit() {
-    setTimeout(() => this.onWindowScroll(), 50);
+    //setTimeout(() => this.onWindowScroll(), 50);
+
+    if (this.isiOS) {
+      // Load all animations at once for iOS
+      setTimeout(() => this.loadAllAtOnce(), 100);
+    } else {
+      // Apply the normal scroll-based animations
+      setTimeout(() => this.onWindowScroll(), 50);
+    }
+  }
+
+  private loadAllAtOnce() {
+    this.fadedIn = true;
+    this.fadedInService = true;
+    this.fadedInContactUs = true;
+    this.fadedInAboutUs = true;
+    this.animateCards();
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -75,7 +97,7 @@ export class HomeComponent implements OnInit {
     const triggerPositionContactUs = screenWidth > 700 ? 1106 : 2100;
     const triggerPositionAboutUs = screenWidth > 700 ? 1800 : 3012;
 
-    // console.log(scrollPosition);
+    //console.log(scrollPosition);
     const cardsElement = document.getElementById('cardsElement');
     const serviceElement = document.getElementById('services');
     const contactUsElement = document.getElementById('contact-us');
