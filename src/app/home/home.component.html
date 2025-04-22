@@ -1,9 +1,5 @@
-<div class="margin-top" id="home">
-  <div
-    id="carouselExampleControls"
-    class="carousel slide"
-    data-bs-ride="carousel"
-  >
+<section id="home" class="margin-top" aria-label="Promotional Carousel">
+  <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div
         *ngFor="let slides of imageSlides; let i = index"
@@ -26,24 +22,24 @@
     <button
       class="carousel-control-prev"
       type="button"
-      data-bs-target="#carouselExampleControls"
+      data-bs-target="#carouselControls"
       data-bs-slide="prev"
     >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="carousel-control-prev-icon"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button
       class="carousel-control-next"
       type="button"
-      data-bs-target="#carouselExampleControls"
+      data-bs-target="#carouselControls"
       data-bs-slide="next"
     >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="carousel-control-next-icon"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-</div>
-<section class="products mt-5">
+</section>
+<section class="products mt-5" aria-labelledby="products-title">
   <div class="container">
     <div class="title mb-5 text-center">
       <span class="h1 font-bold"> MiGig Products</span>
@@ -51,11 +47,15 @@
   </div>
   <div class="card-container container"></div>
 </section>
-<div class="container mb-5">
-  <div class="card-group">
-    <div class="card" *ngFor="let product of productImages">
+<section class="container mb-5" aria-label="Product Cards">
+  <div
+    class="card-group"
+    id="cardsElement"
+    class="card-group"
+    [class.fade-in]="fadedIn"
+  >
+    <div class="card" *ngFor="let product of productImages; let i = index">
       <div class="image-container">
-        <!-- <a href="/product/guitar"> -->
         <img
           class="card-img-top front w-100"
           [src]="product.images[0]"
@@ -69,16 +69,13 @@
           loading="eager"
           decoding="async"
         />
-        <!-- </a> -->
       </div>
       <div class="card-body">
-        <!-- <a href="/product/guitar"> -->
         <h5 class="card-title font-semibold mt-0">{{ product.title }}</h5>
-        <!-- </a> -->
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <section
   class="steps-section py-5 thisFadeIn"
@@ -153,7 +150,6 @@
   id="exampleModal"
   tabindex="-1"
   aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
 >
   <div class="modal-dialog">
     <div class="modal-content">

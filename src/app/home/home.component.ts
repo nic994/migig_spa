@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
     this.fadedInService = true;
     this.fadedInContactUs = true;
     this.fadedInAboutUs = true;
-    this.animateCards();
+    // this.animateCards();
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -103,9 +103,9 @@ export class HomeComponent implements OnInit {
     const contactUsElement = document.getElementById('contact-us');
     const aboutUsElement = document.getElementById('about-us');
 
-    // animate cards
-    if (scrollPosition >= triggerPosition && !this.fadedIn) {
-      this.animateCards();
+    //animate cards
+    if (cardsElement && scrollPosition >= triggerPosition && !this.fadedIn) {
+      // this.animateCards();
       this.fadedIn = true;
     }
 
@@ -115,7 +115,6 @@ export class HomeComponent implements OnInit {
       scrollPosition >= triggerPositionService &&
       !this.fadedInService
     ) {
-      //this.fadeInCard(serviceElement, 10);
       this.fadedInService = true;
     }
     // Fade in Contact Us
@@ -124,7 +123,6 @@ export class HomeComponent implements OnInit {
       scrollPosition >= triggerPositionContactUs &&
       !this.fadedInContactUs
     ) {
-      // this.fadeInCard(contactUsElement, 10);
       this.fadedInContactUs = true;
     }
 
@@ -134,7 +132,6 @@ export class HomeComponent implements OnInit {
       scrollPosition >= triggerPositionAboutUs &&
       !this.fadedInAboutUs
     ) {
-      //this.fadeInCard(aboutUsElement, 10);
       this.fadedInAboutUs = true;
     }
   }
@@ -148,13 +145,13 @@ export class HomeComponent implements OnInit {
   //   });
   // }
 
-  private animateCards() {
-    this.el.nativeElement
-      .querySelectorAll('.card')
-      .forEach((card: HTMLElement, index: number) =>
-        setTimeout(() => this.renderer.addClass(card, 'fade-in'), index * 200)
-      );
-  }
+  // private animateCards() {
+  //   this.el.nativeElement
+  //     .querySelectorAll('.card')
+  //     .forEach((card: HTMLElement, index: number) =>
+  //       setTimeout(() => this.renderer.addClass(card, 'fade-in'), index * 200)
+  //     );
+  // }
 
   imageSlides = [
     {
