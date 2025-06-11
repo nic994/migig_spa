@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
-import { ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +13,7 @@ import { ElementRef, HostListener, Renderer2 } from '@angular/core';
 export class HomeComponent implements OnInit {
   private isiOS!: boolean;
 
-  constructor(
-    private meta: Meta,
-    private title: Title,
-    private el: ElementRef,
-    private renderer: Renderer2
-  ) {
+  constructor(private meta: Meta, private title: Title) {
     this.title.setTitle('Migig Customized Gig Bags');
 
     this.meta.addTags([
@@ -70,8 +65,6 @@ export class HomeComponent implements OnInit {
   fadedIn = false;
 
   ngOnInit() {
-    //setTimeout(() => this.onWindowScroll(), 50);
-
     if (this.isiOS) {
       // Load all animations at once for iOS
       setTimeout(() => this.loadAllAtOnce(), 100);
@@ -135,23 +128,6 @@ export class HomeComponent implements OnInit {
       this.fadedInAboutUs = true;
     }
   }
-  // private animateCards() {
-  //   const cards = this.el.nativeElement.querySelectorAll('.card');
-  //   cards.forEach((card: HTMLElement, index: number) => {
-  //     const delay = index * 200;
-  //     setTimeout(() => {
-  //       this.renderer.addClass(card, 'fade-in');
-  //     }, delay);
-  //   });
-  // }
-
-  // private animateCards() {
-  //   this.el.nativeElement
-  //     .querySelectorAll('.card')
-  //     .forEach((card: HTMLElement, index: number) =>
-  //       setTimeout(() => this.renderer.addClass(card, 'fade-in'), index * 200)
-  //     );
-  // }
 
   imageSlides = [
     {

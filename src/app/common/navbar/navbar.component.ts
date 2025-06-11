@@ -11,13 +11,6 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   constructor(private viewportScroller: ViewportScroller) {}
 
-  // scrollToSection(sectionId: string) {
-  //   const element = document.getElementById(sectionId);
-  //   if (element) {
-  //     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  //   }
-  // }
-
   scrollToSection(sectionId: string, offset = 50) {
     const element = document.getElementById(sectionId);
     if (element) {
